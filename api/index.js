@@ -5,7 +5,7 @@ const path = require('path');
 const axios = require('axios');
 const FormData = require('form-data');
 const multer = require('multer');
-const streamToBuffer = require('buffer-to-stream'); // Ganti ini
+const streamToBuffer = require('stream-to-buffer'); // Ganti ini
 
 const app = express();
 
