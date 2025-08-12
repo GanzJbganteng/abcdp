@@ -1,17 +1,17 @@
 {
-  "name": "rofik-vercel-server",
+  "name": "rofik-project",
   "version": "1.0.0",
-  "description": "Server API untuk preset dan downloader",
+  "description": "",
   "main": "api/index.js",
   "scripts": {
-    "start": "node api/index.js"
+    "start": "node api/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "axios": "^1.6.8",
-    "cors": "^2.8.5",
+    "axios": "^1.7.2",
+    "buffer-to-stream": "^1.0.1",
     "express": "^4.19.2",
     "form-data": "^4.0.0",
-    "multer": "^1.4.5-lts.1",
-    "stream-to-buffer": "^0.1.0"
+    "multer": "^1.4.5-lts.1"
   }
 }
