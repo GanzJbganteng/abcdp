@@ -1,7 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 
-const PRESETS_FILE = path.join(__dirname, 'presets.json');
+const PRESETS_FILE = path.join(__dirname, '..', 'presets.json');
+
 
 const readPresets = () => {
     try {
