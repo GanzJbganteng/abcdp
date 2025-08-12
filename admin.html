@@ -69,18 +69,18 @@
 </div>
 
 <script>
-    // --- Bagian ini yang diubah ---
-    const API_URL = 'https://abcdp.vercel.app/api/presets';
-    // --- Akhir perubahan ---
+    // URL untuk mengambil data presets (tetap pakai yang lama)
+    const PRESET_READ_URL = 'https://abcdp.vercel.app/api/presets';
+    // URL untuk update, tambah, dan hapus (pakai API baru)
+    const PRESET_UPDATE_URL = 'https://abcdp.vercel.app/api/github-update-presets';
 
     const presetForm = document.getElementById('presetForm');
     const presetsTableBody = document.querySelector('#presetsTable tbody');
     const submitBtn = document.getElementById('submitBtn');
 
-    // Fungsi untuk memuat preset dari API
     async function loadPresets() {
         try {
-            const response = await fetch(API_URL);
+            const response = await fetch(PRESET_READ_URL);
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
@@ -92,7 +92,6 @@
         }
     }
 
-    // Fungsi untuk merender preset di tabel
     function renderPresets(presets) {
         presetsTableBody.innerHTML = '';
         presets.forEach(preset => {
@@ -108,7 +107,6 @@
         });
     }
 
-    // Fungsi untuk menambah atau mengedit preset
     presetForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         
@@ -119,20 +117,18 @@
             video_url: document.getElementById('video_url').value,
             download_url_alight: document.getElementById('download_url_alight').value,
             download_url_xml: document.getElementById('download_url_xml').value,
-            file_size: '5MB & XML' // Hardcoded for simplicity
+            file_size: '5MB & XML'
         };
 
         let response;
         if (presetId) {
-            // Edit preset
-            response = await fetch(`${API_URL}?id=${presetId}`, {
+            response = await fetch(`${PRESET_UPDATE_URL}?id=${presetId}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(presetData)
             });
         } else {
-            // Tambah preset
-            response = await fetch(API_URL, {
+            response = await fetch(PRESET_UPDATE_URL, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(presetData)
@@ -140,19 +136,18 @@
         }
 
         if (response.ok) {
-            alert('Preset berhasil disimpan!');
+            alert('Preset berhasil disimpan! Silakan refresh halaman setelah beberapa saat untuk melihat perubahan.');
             presetForm.reset();
             document.getElementById('presetId').value = '';
             submitBtn.innerText = 'Tambah Preset';
-            loadPresets(); // Muat ulang daftar preset
+            // loadPresets();
         } else {
             alert('Gagal menyimpan preset.');
         }
     });
     
-    // Fungsi untuk mengisi form saat edit
     async function editPreset(id) {
-        const response = await fetch(API_URL);
+        const response = await fetch(PRESET_READ_URL);
         const presets = await response.json();
         const preset = presets.find(p => p.id === id);
 
@@ -167,25 +162,23 @@
         }
     }
 
-    // Fungsi untuk menghapus preset
     async function deletePreset(id) {
         if (!confirm('Apakah Anda yakin ingin menghapus preset ini?')) {
             return;
         }
 
-        const response = await fetch(`${API_URL}?id=${id}`, {
+        const response = await fetch(`${PRESET_UPDATE_URL}?id=${id}`, {
             method: 'DELETE'
         });
 
         if (response.ok) {
-            alert('Preset berhasil dihapus!');
-            loadPresets(); // Muat ulang daftar preset
+            alert('Preset berhasil dihapus! Silakan refresh halaman setelah beberapa saat untuk melihat perubahan.');
+            // loadPresets();
         } else {
             alert('Gagal menghapus preset.');
         }
     }
 
-    // Muat preset saat halaman pertama kali dibuka
     document.addEventListener('DOMContentLoaded', loadPresets);
 </script>
 
