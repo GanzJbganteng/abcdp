@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Admin - Preset Alight Motion</title>
+    <style>
+        body { font-family: sans-serif; background-color: #f4f4f4; padding: 20px; }
+        .container { max-width: 900px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h1, h2 { color: #333; }
+        form { margin-bottom: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        form input, form textarea { width: 100%; padding: 8px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px; }
+        form button { padding: 10px 15px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        form button:hover { background: #0056b3; }
+        .full-width { grid-column: 1 / 3; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        table, th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .actions button { margin-right: 5px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Panel Admin Preset</h1>
+
+    <h2>Tambah/Edit Preset</h2>
+    <form id="presetForm">
+        <input type="hidden" id="presetId" name="id">
+        <div class="full-width">
+            <label for="title">Judul:</label>
+            <input type="text" id="title" name="title" required>
+        </div>
+        <div class="full-width">
+            <label for="description">Deskripsi:</label>
+            <input type="text" id="description" name="description" required>
+        </div>
+        <div class="full-width">
+            <label for="video_url">Link Video:</label>
+            <input type="url" id="video_url" name="video_url" required>
+        </div>
+        <div>
+            <label for="download_url_alight">Link 5MB:</label>
+            <input type="url" id="download_url_alight" name="download_url_alight" required>
+        </div>
+        <div>
+            <label for="download_url_xml">Link XML:</label>
+            <input type="url" id="download_url_xml" name="download_url_xml" required>
+        </div>
+        <div class="full-width">
+            <button type="submit" id="submitBtn">Tambah Preset</button>
+        </div>
+    </form>
+
+    <hr>
+
+    <h2>Daftar Preset</h2>
+    <table id="presetsTable">
+        <thead>
+            <tr>
+                <th>Judul</th>
+                <th>Deskripsi</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            </tbody>
+    </table>
+</div>
+
+<script>
+    // --- Bagian ini yang diubah ---
+    const API_URL = 'https://abcdp.vercel.app/api/presets';
+    // --- Akhir perubahan ---
+
+    const presetForm = document.getElementById('presetForm');
+    const presetsTableBody = document.querySelector('#presetsTable tbody');
+    const submitBtn = document.getElementById('submitBtn');
+
+    // Fungsi untuk memuat preset dari API
+    async function loadPresets() {
+        try {
+            const response = await fetch(API_URL);
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            const presets = await response.json();
+            renderPresets(presets);
+        } catch (error) {
+            console.error('Ada masalah saat memuat preset:', error);
+            presetsTableBody.innerHTML = '<tr><td colspan="3">Gagal memuat daftar preset.</td></tr>';
+        }
+    }
+
+    // Fungsi untuk merender preset di tabel
+    function renderPresets(presets) {
+        presetsTableBody.innerHTML = '';
+        presets.forEach(preset => {
+            const row = presetsTableBody.insertRow();
+            row.innerHTML = `
+                <td>${preset.title}</td>
+                <td>${preset.description}</td>
+                <td class="actions">
+                    <button onclick="editPreset(${preset.id})">Edit</button>
+                    <button onclick="deletePreset(${preset.id})">Hapus</button>
+                </td>
+            `;
+        });
+    }
+
+    // Fungsi untuk menambah atau mengedit preset
+    presetForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const presetId = document.getElementById('presetId').value;
+        const presetData = {
+            title: document.getElementById('title').value,
+            description: document.getElementById('description').value,
+            video_url: document.getElementById('video_url').value,
+            download_url_alight: document.getElementById('download_url_alight').value,
+            download_url_xml: document.getElementById('download_url_xml').value,
+            file_size: '5MB & XML' // Hardcoded for simplicity
+        };
+
+        let response;
+        if (presetId) {
+            // Edit preset
+            response = await fetch(`${API_URL}?id=${presetId}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(presetData)
+            });
+        } else {
+            // Tambah preset
+            response = await fetch(API_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(presetData)
+            });
+        }
+
+        if (response.ok) {
+            alert('Preset berhasil disimpan!');
+            presetForm.reset();
+            document.getElementById('presetId').value = '';
+            submitBtn.innerText = 'Tambah Preset';
+            loadPresets(); // Muat ulang daftar preset
+        } else {
+            alert('Gagal menyimpan preset.');
+        }
+    });
+    
+    // Fungsi untuk mengisi form saat edit
+    async function editPreset(id) {
+        const response = await fetch(API_URL);
+        const presets = await response.json();
+        const preset = presets.find(p => p.id === id);
+
+        if (preset) {
+            document.getElementById('presetId').value = preset.id;
+            document.getElementById('title').value = preset.title;
+            document.getElementById('description').value = preset.description;
+            document.getElementById('video_url').value = preset.video_url;
+            document.getElementById('download_url_alight').value = preset.download_url_alight;
+            document.getElementById('download_url_xml').value = preset.download_url_xml;
+            submitBtn.innerText = 'Update Preset';
+        }
+    }
+
+    // Fungsi untuk menghapus preset
+    async function deletePreset(id) {
+        if (!confirm('Apakah Anda yakin ingin menghapus preset ini?')) {
+            return;
+        }
+
+        const response = await fetch(`${API_URL}?id=${id}`, {
+            method: 'DELETE'
+        });
+
+        if (response.ok) {
+            alert('Preset berhasil dihapus!');
+            loadPresets(); // Muat ulang daftar preset
+        } else {
+            alert('Gagal menghapus preset.');
+        }
+    }
+
+    // Muat preset saat halaman pertama kali dibuka
+    document.addEventListener('DOMContentLoaded', loadPresets);
+</script>
+
+</body>
+</html>
