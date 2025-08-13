@@ -1310,7 +1310,100 @@
             font-weight: bold;
             text-align: center;
         }
-        
+
+        /* --- CSS BARU UNTUK BERANDA --- */
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            padding: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: var(--light-card-bg);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 1px solid var(--neon-cyan);
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6), 0 0 10px var(--neon-shadow);
+        }
+
+        .stat-card .icon {
+            font-size: 2rem;
+            color: var(--neon-cyan);
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 5px var(--neon-shadow);
+        }
+
+        .stat-card h3 {
+            margin: 0;
+            font-size: 1.2rem;
+            color: var(--text-color);
+        }
+
+        .stat-card p {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--neon-cyan);
+            font-family: 'Share Tech Mono', monospace;
+            text-shadow: 0 0 8px var(--neon-shadow);
+        }
+
+        .quick-access-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            padding: 1rem;
+        }
+
+        .quick-access-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 2px solid var(--neon-cyan);
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            text-decoration: none;
+            color: var(--text-color);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .quick-access-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6), 0 0 10px var(--neon-shadow);
+            background-color: var(--light-card-bg);
+            border-color: var(--gold);
+        }
+
+        .quick-access-card .icon {
+            font-size: 2.5rem;
+            color: var(--neon-cyan);
+            text-shadow: 0 0 8px var(--neon-shadow);
+            flex-shrink: 0;
+        }
+        .quick-access-card:hover .icon {
+            color: var(--gold);
+        }
+
+        .quick-access-card .card-text h4 {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+
+        .quick-access-card .card-text small {
+            margin: 0;
+            color: var(--light-text);
+        }
     </style>
 </head>
 <body>
@@ -1355,8 +1448,62 @@
 
     <main class="main-content">
         
-        <div id="beranda" class="content-section active home-page">
-            <h1>Rofik</h1>
+        <div id="beranda" class="content-section active">
+            <div class="hero-section" style="text-align: left;">
+                <h1 class="title-main" style="text-align: center;">Selamat Datang di Rofik Tools!</h1>
+                <p style="text-align: center; color: var(--light-text); font-style: italic;">
+                    Semua kebutuhan digitalmu ada di sini.
+                </p>
+            </div>
+        
+            <div class="stats-container">
+                <div class="stat-card">
+                    <span class="icon fas fa-cogs"></span>
+                    <h3>Total Layanan</h3>
+                    <p id="totalServicesCount">Memuat...</p>
+                </div>
+                <div class="stat-card">
+                    <span class="icon fab fa-telegram-plane"></span>
+                    <h3>Bot Telegram</h3>
+                    <p>12 SC Bot</p>
+                </div>
+                <div class="stat-card">
+                    <span class="icon fas fa-film"></span>
+                    <h3>Preset AM</h3>
+                    <p id="totalPresetsCount">Memuat...</p>
+                </div>
+            </div>
+        
+            <div class="quick-access-container">
+                <a href="#suntik-sosmed" class="quick-access-card">
+                    <span class="icon fas fa-share-alt"></span>
+                    <div class="card-text">
+                        <h4>Suntik Sosmed</h4>
+                        <small>Tambah followers, likes, dll.</small>
+                    </div>
+                </a>
+                <a href="#alight-motion-preset" class="quick-access-card">
+                    <span class="icon fas fa-film"></span>
+                    <div class="card-text">
+                        <h4>Preset Alight Motion</h4>
+                        <small>Download preset keren.</small>
+                    </div>
+                </a>
+                <a href="#tiktok-downloader" class="quick-access-card">
+                    <span class="icon fab fa-tiktok"></span>
+                    <div class="card-text">
+                        <h4>TikTok Downloader</h4>
+                        <small>Unduh video tanpa watermark.</small>
+                    </div>
+                </a>
+                <a href="#media-to-url" class="quick-access-card">
+                    <span class="icon fas fa-link"></span>
+                    <div class="card-text">
+                        <h4>Media to URL</h4>
+                        <small>Upload media dan dapatkan link.</small>
+                    </div>
+                </a>
+            </div>
         </div>
 
         <div id="payment" class="content-section">
@@ -1726,6 +1873,8 @@
                 document.querySelector('.progress-bar-container').style.display = 'none';
             } else if (targetId === 'history') {
                 loadHistory();
+            } else if (targetId === 'beranda') {
+                loadHomeStats();
             }
         }
         
@@ -1765,7 +1914,48 @@
               showContent(window.location.hash.substring(1), 'Cari...');
             }
         });
+        
+        // --- Fungsi untuk Mengisi Data Statistik di Beranda ---
+        async function loadHomeStats() {
+            const totalServicesCount = document.getElementById('totalServicesCount');
+            const totalPresetsCount = document.getElementById('totalPresetsCount');
+            
+            // Ambil data layanan dari Fayu Pedia
+            if (allServices.length === 0) {
+                try {
+                    const servicesResponse = await fetch(`${FAYU_ENDPOINT}/services`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                        body: new URLSearchParams({
+                            'api_id': FAYU_API_ID,
+                            'api_key': FAYU_API_KEY,
+                        })
+                    });
+                    const servicesData = await servicesResponse.json();
+                    if (servicesData.status) {
+                        allServices = servicesData.services;
+                        totalServicesCount.innerText = allServices.length.toLocaleString('id-ID');
+                    } else {
+                        totalServicesCount.innerText = 'Gagal';
+                    }
+                } catch (error) {
+                    totalServicesCount.innerText = 'Error';
+                    console.error('API Error:', error);
+                }
+            } else {
+                totalServicesCount.innerText = allServices.length.toLocaleString('id-ID');
+            }
 
+            // Ambil data preset dari server backend
+            try {
+                const presetsResponse = await fetch(`${CUSTOM_API_URL}/api/presets`);
+                const presets = await presetsResponse.json();
+                totalPresetsCount.innerText = presets.length.toLocaleString('id-ID');
+            } catch (error) {
+                totalPresetsCount.innerText = 'Error';
+            }
+        }
+        
         // --- FAYU PEDIA API FUNCTIONS ---
         async function fetchServicesAndBalance() {
             const balanceSpan = document.getElementById('balanceAmount');
