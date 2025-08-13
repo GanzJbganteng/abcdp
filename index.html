@@ -431,221 +431,7 @@
             margin-bottom: 0;
         }
         
-        /* --- Styling Halaman Suntik Sosmed --- */
-        .suntik-sosmed, .media-uploader, .pinterest-downloader, .tiktok-downloader, .all-sosmed-downloader {
-            text-align: center;
-            background-color: var(--card-bg);
-            padding: 2rem;
-            border-radius: 15px;
-            border: 2px solid var(--neon-cyan);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
-            max-width: 600px;
-            margin: 2rem auto;
-        }
-        .suntik-sosmed h1, .media-uploader h1, .pinterest-downloader h1, .tiktok-downloader h1, .all-sosmed-downloader h1 {
-            color: var(--neon-cyan);
-            text-shadow: 0 0 10px var(--neon-shadow);
-            margin-bottom: 1.5rem;
-        }
-        .suntik-sosmed .balance {
-            font-family: 'Share Tech Mono', monospace;
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
-            padding: 0.5rem 1rem;
-            border: 1px solid var(--neon-cyan);
-            border-radius: 8px;
-            background-color: var(--dark-bg);
-        }
-        .suntik-sosmed-container, .form-container {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            text-align: left;
-        }
-        .order-form label {
-            font-weight: bold;
-            color: var(--neon-cyan);
-        }
-        .suntik-sosmed-container input:not([type="checkbox"]), .suntik-sosmed-container textarea,
-        .form-container input:not([type="checkbox"]), .form-container textarea,
-        .form-container select, .pinterest-downloader input, .all-sosmed-downloader input {
-            width: 100%;
-            padding: 0.75rem;
-            border-radius: 0.5rem;
-            border: 1px solid var(--neon-cyan);
-            background-color: var(--dark-bg);
-            color: var(--text-color);
-            box-sizing: border-box;
-            outline: none;
-            transition: all 0.3s ease;
-            resize: vertical;
-            min-height: 80px; /* Added for textarea */
-        }
-        .suntik-sosmed-container input:not([type="checkbox"]):focus, .suntik-sosmed-container textarea:focus,
-        .form-container input:not([type="checkbox"]):focus, .form-container textarea:focus,
-        .form-container select:focus, .pinterest-downloader input:focus, .all-sosmed-downloader input:focus {
-            box-shadow: 0 0 10px var(--neon-shadow);
-        }
-        .suntik-sosmed-container .cost, .form-container .cost {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--gold);
-            text-align: center;
-        }
-        .suntik-sosmed-container button, .form-container button, .pinterest-downloader button, .all-sosmed-downloader button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            padding: 0.75rem;
-            background-color: var(--neon-cyan);
-            color: var(--btn-text);
-            border: none;
-            border-radius: 0.5rem;
-            cursor: pointer;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-        .suntik-sosmed-container button:hover, .form-container button:hover, .pinterest-downloader button:hover, .all-sosmed-downloader button:hover {
-            background-color: #00b8d4;
-            box-shadow: 0 0 15px var(--neon-shadow);
-        }
-        .status-message {
-            margin-top: 1rem;
-            padding: 1rem;
-            border-radius: 8px;
-            background-color: rgba(0, 255, 242, 0.2);
-            color: var(--neon-cyan);
-            text-align: center;
-            display: none;
-        }
-        
-        .checkbox-container {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .checkbox-container input[type="checkbox"] {
-            width: auto;
-        }
-        
-        .service-details {
-            background-color: var(--light-card-bg);
-            padding: 1rem;
-            border-radius: 8px;
-            border: 1px solid var(--neon-cyan);
-            display: none;
-            text-align: left;
-        }
-        .service-details h4 {
-            margin: 0 0 0.5rem 0;
-            color: var(--neon-cyan);
-        }
-        .service-details p {
-            margin: 0.25rem 0;
-        }
-        
-        .min-max-info {
-            display: flex;
-            justify-content: space-between;
-            background-color: var(--light-card-bg);
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            color: var(--light-text);
-            margin-bottom: 0.5rem;
-            display: none; /* Sembunyikan default */
-        }
-        .min-max-info span {
-            font-weight: bold;
-            color: var(--neon-cyan);
-        }
-        
-        /* New styling for comment section */
-        #commentSection {
-            display: none; /* Default hidden */
-        }
-        
-        /* --- Custom Dropdown Styling --- */
-        .custom-dropdown {
-            position: relative;
-            font-family: 'Poppins', sans-serif;
-            margin-bottom: 1rem;
-        }
-        
-        .dropdown-selected {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.75rem;
-            border-radius: 0.5rem;
-            border: 1px solid var(--neon-cyan);
-            background-color: var(--dark-bg);
-            color: var(--text-color);
-            cursor: pointer;
-            user-select: none;
-            transition: all 0.3s ease;
-        }
-
-        .dropdown-selected:hover {
-            box-shadow: 0 0 10px var(--neon-shadow);
-        }
-        
-        .dropdown-list {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            z-index: 10;
-            background-color: var(--card-bg);
-            border: 1px solid var(--neon-cyan);
-            border-radius: 0.5rem;
-            max-height: 200px;
-            overflow-y: auto;
-            display: none;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-            margin-top: 5px;
-        }
-
-        .dropdown-list.open {
-            display: block;
-        }
-
-        .dropdown-list input {
-            width: calc(100% - 2rem);
-            padding: 0.75rem 1rem;
-            border: none;
-            border-bottom: 1px solid var(--neon-cyan);
-            border-radius: 0;
-            background-color: var(--light-card-bg);
-            color: var(--text-color);
-            outline: none;
-            box-sizing: border-box;
-        }
-
-        .dropdown-list ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        }
-
-        .dropdown-list li {
-            padding: 0.75rem 1rem;
-            cursor: pointer;
-            transition: background-color 0.2s ease;
-        }
-
-        .dropdown-list li:hover {
-            background-color: var(--neon-cyan);
-            color: var(--btn-text);
-        }
-        
-        .dropdown-list li.selected {
-            background-color: var(--neon-cyan);
-            color: var(--btn-text);
-        }
+        /* --- Styling Halaman Suntik Sosmed (Dihapus) --- */
         
         /* --- Styling Halaman Preset Alight Motion --- */
         .preset-container {
@@ -725,7 +511,8 @@
         }
         
         /* --- Styling Halaman TikTok Downloader --- */
-        .tiktok-downloader {
+        .tiktok-downloader,
+        .pinterest-downloader {
             max-width: 600px;
             margin: 2rem auto;
             background-color: var(--card-bg);
@@ -736,20 +523,23 @@
             text-align: center;
         }
         
-        .tiktok-downloader h1 {
+        .tiktok-downloader h1,
+        .pinterest-downloader h1 {
             color: var(--neon-cyan);
             text-shadow: 0 0 10px var(--neon-shadow);
             margin-bottom: 1rem;
         }
         
-        .tiktok-downloader .input-group {
+        .tiktok-downloader .input-group,
+        .pinterest-downloader .input-group {
             display: flex;
             flex-direction: column;
             gap: 1rem;
             margin-bottom: 2rem;
         }
         
-        .tiktok-downloader .input-group input {
+        .tiktok-downloader .input-group input,
+        .pinterest-downloader .input-group input {
             width: 100%;
             padding: 0.75rem;
             border-radius: 0.5rem;
@@ -760,7 +550,8 @@
             box-shadow: 0 0 5px var(--neon-shadow);
         }
         
-        .tiktok-downloader .input-group button {
+        .tiktok-downloader .input-group button,
+        .pinterest-downloader .input-group button {
             width: 100%;
             padding: 0.75rem 1.5rem;
             border: none;
@@ -772,12 +563,14 @@
             transition: all 0.3s ease;
         }
         
-        .tiktok-downloader .input-group button:hover {
+        .tiktok-downloader .input-group button:hover,
+        .pinterest-downloader .input-group button:hover {
             background-color: #00b8d4;
             box-shadow: 0 0 15px var(--neon-shadow);
         }
         
-        .tiktok-downloader #resultArea {
+        .tiktok-downloader #resultArea,
+        .pinterest-downloader #resultArea {
             display: none;
             flex-direction: column;
             gap: 1.5rem;
@@ -785,7 +578,8 @@
             text-align: left;
         }
         
-        .tiktok-downloader #resultArea .video-info {
+        .tiktok-downloader #resultArea .video-info,
+        .pinterest-downloader #resultArea .video-info {
             background-color: var(--light-card-bg);
             padding: 1.5rem;
             border-radius: 10px;
@@ -793,17 +587,20 @@
             box-shadow: 0 0 10px var(--neon-shadow);
         }
 
-        .tiktok-downloader #resultArea .video-info h3 {
+        .tiktok-downloader #resultArea .video-info h3,
+        .pinterest-downloader #resultArea .video-info h3 {
             color: var(--neon-cyan);
             margin-top: 0;
             text-shadow: 0 0 5px var(--neon-shadow);
         }
         
-        .tiktok-downloader #resultArea .video-info p {
+        .tiktok-downloader #resultArea .video-info p,
+        .pinterest-downloader #resultArea .video-info p {
             margin: 0.5rem 0;
         }
         
-        .tiktok-downloader #resultArea .download-links {
+        .tiktok-downloader #resultArea .download-links,
+        .pinterest-downloader #resultArea .download-links {
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
@@ -813,7 +610,9 @@
         }
         
         .tiktok-downloader #resultArea .download-links a,
-        .tiktok-downloader #resultArea .download-links button {
+        .pinterest-downloader #resultArea .download-links a,
+        .tiktok-downloader #resultArea .download-links button,
+        .pinterest-downloader #resultArea .download-links button {
             display: block;
             padding: 0.75rem;
             text-align: center;
@@ -829,17 +628,21 @@
         
         @media (max-width: 480px) {
             .tiktok-downloader #resultArea .download-links a,
-            .tiktok-downloader #resultArea .download-links button {
+            .pinterest-downloader #resultArea .download-links a,
+            .tiktok-downloader #resultArea .download-links button,
+            .pinterest-downloader #resultArea .download-links button {
                 flex-basis: 100%;
             }
         }
         
-        .tiktok-downloader #resultArea .download-links .btn-video-nowm {
+        .tiktok-downloader #resultArea .download-links .btn-video-nowm,
+        .pinterest-downloader #resultArea .download-links .btn-video-nowm {
             background-color: var(--neon-cyan);
             color: var(--btn-text);
         }
         
-        .tiktok-downloader #resultArea .download-links .btn-video-nowm:hover {
+        .tiktok-downloader #resultArea .download-links .btn-video-nowm:hover,
+        .pinterest-downloader #resultArea .download-links .btn-video-nowm:hover {
             background-color: #00b8d4;
         }
         
@@ -1201,7 +1004,6 @@
         .preset-card,
         .tiktok-downloader,
         .media-uploader,
-        .suntik-sosmed,
         .pinterest-downloader,
         .all-sosmed-downloader,
         #history h1,
@@ -1270,47 +1072,6 @@
             justify-content: center;
         }
         
-        /* --- Gaya Khusus All Sosmed Downloader --- */
-        .all-sosmed-downloader .result-box {
-            background-color: var(--light-card-bg);
-            padding: 1.5rem;
-            border-radius: 10px;
-            border: 1px solid var(--neon-cyan);
-            margin-top: 1rem;
-            text-align: left;
-        }
-
-        .all-sosmed-downloader .result-box h4 {
-            color: var(--neon-cyan);
-            margin-top: 0;
-            margin-bottom: 1rem;
-        }
-
-        .all-sosmed-downloader .media-display {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-        
-        .all-sosmed-downloader .media-display img,
-        .all-sosmed-downloader .media-display video {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            display: block;
-        }
-
-        .all-sosmed-downloader .media-display a {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            background-color: var(--neon-cyan);
-            color: var(--btn-text);
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            text-align: center;
-        }
-
         /* --- CSS BARU UNTUK BERANDA --- */
         .stats-container {
             display: grid;
@@ -1422,11 +1183,9 @@
         <a href="#payment" class="menu-item"><span class="icon fas fa-money-bill-wave"></span>Payment</a>
         <a href="#produk" class="menu-item"><span class="icon fas fa-shopping-cart"></span>Produk</a>
         <a href="#sc-bot" class="menu-item"><span class="icon fas fa-code"></span>SC Bot Tele Free</a>
-        <a href="#suntik-sosmed" class="menu-item"><span class="icon fas fa-share-alt"></span>Suntik Sosmed</a>
         <a href="#alight-motion-preset" class="menu-item"><span class="icon fas fa-film"></span>Preset Alight Motion</a>
         <a href="#tiktok-downloader" class="menu-item"><span class="icon fab fa-tiktok"></span>TikTok Downloader</a>
         <a href="#pinterest-downloader" class="menu-item"><span class="icon fab fa-pinterest"></span>Pinterest Downloader</a>
-        <a href="#all-sosmed-downloader" class="menu-item"><span class="icon fas fa-download"></span>All Sosmed Downloader</a>
         <a href="#media-to-url" class="menu-item"><span class="icon fas fa-link"></span>Media to URL</a>
         <a href="#history" class="menu-item"><span class="icon fas fa-history"></span>Riwayat</a>
     </div>
@@ -1455,27 +1214,9 @@
                     Semua kebutuhan digitalmu ada di sini.
                 </p>
             </div>
-       
-                <div class="stat-card">
-                    <span class="icon fab fa-telegram-plane"></span>
-                    <h3>Bot Telegram</h3>
-                    <p>12 SC Bot</p>
-                </div>
-                <div class="stat-card">
-                    <span class="icon fas fa-film"></span>
-                    <h3>Preset AM</h3>
-                    <p id="totalPresetsCount">Memuat...</p>
-                </div>
-            </div>
+      
         
             <div class="quick-access-container">
-                <a href="#suntik-sosmed" class="quick-access-card">
-                    <span class="icon fas fa-share-alt"></span>
-                    <div class="card-text">
-                        <h4>Suntik Sosmed</h4>
-                        <small>Tambah followers, likes, dll.</small>
-                    </div>
-                </a>
                 <a href="#alight-motion-preset" class="quick-access-card">
                     <span class="icon fas fa-film"></span>
                     <div class="card-text">
@@ -1570,70 +1311,6 @@
             </div>
         </div>
 
-        <div id="suntik-sosmed" class="content-section">
-            <div class="suntik-sosmed">
-                <h1>Suntik Sosmed</h1>
-                <div class="balance">Saldo: <span id="balanceAmount">Memuat...</span></div>
-                
-                <div class="suntik-sosmed-container">
-                    <form class="order-form" id="suntikSosmedForm">
-                        
-                        <label for="category">Kategori</label>
-                        <div class="custom-dropdown" id="categoryDropdown">
-                            <div class="dropdown-selected">-- Pilih Kategori --</div>
-                            <div class="dropdown-list">
-                                <input type="text" placeholder="Cari kategori...">
-                                <ul id="categoryList"></ul>
-                            </div>
-                        </div>
-                        <input type="hidden" name="category" id="hiddenCategory">
-
-                        <label for="service">Layanan</label>
-                        <div class="custom-dropdown" id="serviceDropdown">
-                            <div class="dropdown-selected">-- Pilih Layanan --</div>
-                            <div class="dropdown-list">
-                                <input type="text" placeholder="Cari layanan...">
-                                <ul id="serviceList"></ul>
-                            </div>
-                        </div>
-                        <input type="hidden" name="service" id="hiddenService">
-                        
-                        <div class="checkbox-container">
-                            <input type="checkbox" id="favoriteOnly">
-                            <label for="favoriteOnly" style="font-weight: normal;">Tampilkan layanan favorit saja</label>
-                        </div>
-                        
-                        <div id="serviceDetails" class="service-details">
-                            <p>Harga: <span id="servicePrice">Rp 0</span></p>
-                            <p id="serviceDescription">
-                                <i style="color:var(--light-text);">Deskripsi layanan akan muncul di sini.</i>
-                            </p>
-                        </div>
-
-                        <label for="target">Link/Target</label>
-                        <input type="text" id="target" name="target" placeholder="Masukkan link atau username..." autocomplete="off">
-
-                        <div id="commentSection">
-                            <label for="comments">Daftar Komentar <small>(1 per baris)</small></label>
-                            <textarea id="comments" placeholder="Masukkan komentar di sini..."></textarea>
-                        </div>
-
-                        <label for="quantity">Jumlah</label>
-                        <div id="minMaxInfo" class="min-max-info">
-                            <span>Min: <span id="serviceMin">0</span></span>
-                            <span>Max: <span id="serviceMax">0</span></span>
-                        </div>
-                        <input type="number" id="quantity" name="quantity" placeholder="Masukkan jumlah..." autocomplete="off">
-                        
-                        <label for="cost">Biaya</label>
-                        <div class="cost" id="totalCost">Rp 0</div>
-
-                        <button type="submit" id="submitOrderBtn">Pesan</button>
-                    </form>
-                </div>
-                <div id="statusMessage" class="status-message"></div>
-            </div>
-        </div>
         
         <div id="alight-motion-preset" class="content-section">
             <div class="hero-section">
@@ -1655,7 +1332,7 @@
                     <button id="downloadTiktokBtn">Download</button>
                 </div>
 
-                <div id="resultArea">
+                <div id="resultAreaTiktok">
                     <video id="tiktokVideoPlayer" controls style="width: 100%; max-width: 400px; border-radius: 10px; margin: 0 auto; display: block;"></video>
                     
                     <div class="video-info">
@@ -1696,47 +1373,28 @@
                     <input type="text" id="pinterestUrlInput" placeholder="Masukkan link video atau gambar Pinterest..." autocomplete="off">
                     <button id="downloadPinterestBtn">Download</button>
                 </div>
-
-                <div id="pinterestResultArea" style="display: none; flex-direction: column; gap: 1.5rem; margin-top: 2rem; text-align: left;">
+                
+                <div id="resultAreaPinterest">
                     <div class="media-container" style="text-align: center;">
-                        </div>
-                    <div class="video-info" style="background-color: var(--light-card-bg); padding: 1.5rem; border-radius: 10px; border: 1px solid var(--neon-cyan); box-shadow: 0 0 10px var(--neon-shadow);">
+                        <img id="pinterestMediaImg" style="width: 100%; max-width: 400px; border-radius: 10px; margin: 0 auto; display: block;">
+                        <video id="pinterestMediaVideo" controls style="width: 100%; max-width: 400px; border-radius: 10px; margin: 0 auto; display: block;"></video>
+                    </div>
+                    
+                    <div class="video-info">
                         <h3>Informasi Konten</h3>
                         <p><strong>Judul:</strong> <span id="pinterestTitle"></span></p>
                     </div>
-                    <div class="download-links" style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 1rem;">
-                        <a id="btnDownloadPinterest" class="download-btn" href="#" target="_blank">
+                    
+                    <div class="download-links">
+                        <a id="btnDownloadPinterest" class="download-btn btn-video-nowm" href="#" download target="_blank">
                             Download <span id="downloadType"></span>
                         </a>
                     </div>
                 </div>
+
                 <div id="pinterestStatusMessage" class="status-message"></div>
             </div>
         </div>
-        
-        <div id="all-sosmed-downloader" class="content-section">
-            <div class="all-sosmed-downloader">
-                <h1>All Sosmed Downloader</h1>
-                <p>Download konten dari berbagai platform media sosial.</p>
-                <div class="input-group">
-                    <input type="text" id="allSosmedUrlInput" placeholder="Masukkan link sosmed..." autocomplete="off">
-                    <button id="downloadAllSosmedBtn">Download</button>
-                </div>
-
-                <div id="allSosmedResultArea" style="display: none;">
-                    <div class="result-box">
-                        <h4>Hasil Download</h4>
-                        <div id="allSosmedMediaDisplay" class="media-display">
-                            </div>
-                        <div class="download-links" style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.5rem;">
-                            </div>
-                    </div>
-                </div>
-
-                <div id="allSosmedStatusMessage" class="status-message"></div>
-            </div>
-        </div>
-        
         <div id="media-to-url" class="content-section">
             <div class="media-uploader">
                 <h1>Media to URL</h1>
@@ -1777,17 +1435,11 @@
     </main>
     
     <script>
-        // FAYU PEDIA API CREDENTIALS
-        const FAYU_API_ID = '99459';
-        const FAYU_API_KEY = 'uihkpf-3tbqro-dp705k-bfiotq-eovqcy';
-        const FAYU_ENDPOINT = 'https://fayupedia.id/api';
-
         // GANTI DENGAN IP LOKAL TERMUX-MU JIKA INGIN DIAKSES DARI JARINGAN LAIN
         // DAN PASTIKAN PORT-NYA SAMA DENGAN SERVER PYTHON.
         const CUSTOM_API_URL = 'https://abcdp-kappa.vercel.app';
 
-        let allServices = [];
-        let categories = [];
+        let lastTiktokVideoUrl = '';
         
         function toggleSidebar() {
             const sidebar = document.getElementById('sidebar');
@@ -1798,16 +1450,6 @@
         
         document.getElementById('backdrop').addEventListener('click', toggleSidebar);
         
-        // Menutup semua dropdown ketika mengklik di luar
-        document.addEventListener('click', function(e) {
-            const dropdowns = document.querySelectorAll('.custom-dropdown');
-            dropdowns.forEach(dropdown => {
-                if (!dropdown.contains(e.target)) {
-                    dropdown.querySelector('.dropdown-list').classList.remove('open');
-                }
-            });
-        });
-
         function showContent(targetId, placeholderText) {
             const sections = document.querySelectorAll('.content-section');
             sections.forEach(section => {
@@ -1841,11 +1483,6 @@
                 let placeholderText = 'Cari...';
                 if (targetId === 'produk') {
                     placeholderText = 'Cari produk...';
-                } else if (targetId === 'suntik-sosmed') {
-                    placeholderText = 'Cari layanan...';
-                    if (allServices.length === 0) {
-                        fetchServicesAndBalance();
-                    }
                 } else if (targetId === 'alight-motion-preset') {
                     placeholderText = 'Cari preset...';
                     loadPresets();
@@ -1868,350 +1505,6 @@
               showContent(window.location.hash.substring(1), 'Cari...');
             }
         });
-
-        // --- FAYU PEDIA API FUNCTIONS ---
-        async function fetchServicesAndBalance() {
-            const balanceSpan = document.getElementById('balanceAmount');
-            
-            balanceSpan.innerText = 'Memuat...';
-
-            try {
-                // Fetch Balance
-                const balanceResponse = await fetch(`${FAYU_ENDPOINT}/balance`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded',
-                    },
-                    body: new URLSearchParams({
-                        'api_id': FAYU_API_ID,
-                        'api_key': FAYU_API_KEY,
-                    })
-                });
-                const balanceData = await balanceResponse.json();
-                if (balanceData.status) {
-                    balanceSpan.innerText = `Rp ${balanceData.balance.toLocaleString('id-ID')}`;
-                } else {
-                    balanceSpan.innerText = 'Gagal memuat saldo';
-                }
-
-                // Fetch Services
-                const servicesResponse = await fetch(`${FAYU_ENDPOINT}/services`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded',
-                    },
-                    body: new URLSearchParams({
-                        'api_id': FAYU_API_ID,
-                        'api_key': FAYU_API_KEY,
-                    })
-                });
-                const servicesData = await servicesResponse.json();
-                
-                if (servicesData.status && servicesData.services.length > 0) {
-                    allServices = servicesData.services;
-                    categories = [...new Set(allServices.map(service => service.category))];
-                    categories.sort();
-                    
-                    populateCategoryDropdown();
-                    populateServiceDropdown();
-                }
-            } catch (error) {
-                balanceSpan.innerText = 'Gagal memuat';
-                console.error('API Error:', error);
-            }
-        }
-        
-        // Logika Dropdown Custom
-        function setupCustomDropdowns() {
-            const categoryDropdown = document.getElementById('categoryDropdown');
-            const serviceDropdown = document.getElementById('serviceDropdown');
-
-            // Category Dropdown Logic
-            if (categoryDropdown) {
-                categoryDropdown.querySelector('.dropdown-selected').addEventListener('click', () => {
-                    categoryDropdown.querySelector('.dropdown-list').classList.toggle('open');
-                    if (serviceDropdown) serviceDropdown.querySelector('.dropdown-list').classList.remove('open');
-                    categoryDropdown.querySelector('input').focus();
-                });
-    
-                categoryDropdown.querySelector('input').addEventListener('input', (e) => {
-                    filterDropdownList(e.target.value, 'category');
-                });
-                
-                document.getElementById('categoryList').addEventListener('click', (e) => {
-                    if (e.target.tagName === 'LI') {
-                        const selectedCategory = e.target.innerText;
-                        categoryDropdown.querySelector('.dropdown-selected').innerText = selectedCategory;
-                        categoryDropdown.querySelector('.dropdown-list').classList.remove('open');
-                        document.getElementById('hiddenCategory').value = selectedCategory;
-                        
-                        populateServiceDropdown(selectedCategory);
-                    }
-                });
-            }
-
-            // Service Dropdown Logic
-            if (serviceDropdown) {
-                serviceDropdown.querySelector('.dropdown-selected').addEventListener('click', () => {
-                    serviceDropdown.querySelector('.dropdown-list').classList.toggle('open');
-                    if (categoryDropdown) categoryDropdown.querySelector('.dropdown-list').classList.remove('open');
-                    serviceDropdown.querySelector('input').focus();
-                });
-    
-                serviceDropdown.querySelector('input').addEventListener('input', (e) => {
-                    filterDropdownList(e.target.value, 'service', document.getElementById('hiddenCategory').value);
-                });
-                
-                document.getElementById('serviceList').addEventListener('click', (e) => {
-                    if (e.target.tagName === 'LI') {
-                        const selectedServiceId = e.target.dataset.value;
-                        const selectedServiceName = e.target.innerText.split('(')[0].trim();
-                        serviceDropdown.querySelector('.dropdown-selected').innerText = selectedServiceName;
-                        serviceDropdown.querySelector('.dropdown-list').classList.remove('open');
-                        document.getElementById('hiddenService').value = selectedServiceId;
-                        updateServiceDetails(selectedServiceId);
-                    }
-                });
-            }
-        }
-        
-        function populateCategoryDropdown() {
-            const categoryList = document.getElementById('categoryList');
-            if (!categoryList) return;
-            categoryList.innerHTML = '';
-            
-            categories.forEach(category => {
-                const li = document.createElement('li');
-                li.innerText = category;
-                categoryList.appendChild(li);
-            });
-        }
-        
-        function populateServiceDropdown(selectedCategory = '') {
-            const serviceList = document.getElementById('serviceList');
-            if (!serviceList) return;
-            
-            const filteredServices = allServices.filter(service => {
-                return selectedCategory === '' || service.category === selectedCategory;
-            });
-            
-            // Sort by price, cheapest first
-            filteredServices.sort((a, b) => a.price - b.price);
-
-            serviceList.innerHTML = '';
-            
-            if (filteredServices.length > 0) {
-                filteredServices.forEach(service => {
-                    const li = document.createElement('li');
-                    li.innerText = `${service.name} (Rp ${service.price.toLocaleString('id-ID')} / 1K)`;
-                    li.dataset.value = service.id;
-                    serviceList.appendChild(li);
-                });
-            } else {
-                const li = document.createElement('li');
-                li.innerText = 'Layanan tidak ditemukan.';
-                serviceList.appendChild(li);
-            }
-            // Reset selected service and details
-            document.getElementById('serviceDropdown').querySelector('.dropdown-selected').innerText = '-- Pilih Layanan --';
-            document.getElementById('hiddenService').value = '';
-            updateServiceDetails();
-        }
-        
-        function filterDropdownList(searchTerm, type, selectedCategory = '') {
-            let listElement;
-            let dataArray;
-            
-            if (type === 'category') {
-                listElement = document.getElementById('categoryList');
-                dataArray = categories;
-            } else if (type === 'service') {
-                listElement = document.getElementById('serviceList');
-                dataArray = allServices.filter(service => {
-                    return selectedCategory === '' || service.category === selectedCategory;
-                });
-            }
-            if (!listElement) return;
-            
-            listElement.innerHTML = '';
-
-            const filteredData = dataArray.filter(item => {
-                if (type === 'category') {
-                    return item.toLowerCase().includes(searchTerm.toLowerCase());
-                } else if (type === 'service') {
-                    return item.name.toLowerCase().includes(searchTerm.toLowerCase());
-                }
-            });
-            
-            if (filteredData.length > 0) {
-                filteredData.forEach(item => {
-                    const li = document.createElement('li');
-                    if (type === 'category') {
-                        li.innerText = item;
-                    } else if (type === 'service') {
-                        li.innerText = `${item.name} (Rp ${item.price.toLocaleString('id-ID')} / 1K)`;
-                        li.dataset.value = item.id;
-                    }
-                    listElement.appendChild(li);
-                });
-            } else {
-                const li = document.createElement('li');
-                li.innerText = 'Tidak ditemukan.';
-                listElement.appendChild(li);
-            }
-        }
-
-        function updateServiceDetails(serviceId = null) {
-            const serviceDetailsDiv = document.getElementById('serviceDetails');
-            const servicePriceSpan = document.getElementById('servicePrice');
-            const serviceDescriptionP = document.getElementById('serviceDescription');
-            
-            const minMaxInfoDiv = document.getElementById('minMaxInfo');
-            const serviceMinSpan = document.getElementById('serviceMin');
-            const serviceMaxSpan = document.getElementById('serviceMax');
-            const quantityInput = document.getElementById('quantity');
-            
-            const commentSection = document.getElementById('commentSection');
-            const commentsTextarea = document.getElementById('comments');
-
-            const selectedService = allServices.find(service => service.id == serviceId);
-
-            // Reset tampilan
-            minMaxInfoDiv.style.display = 'none';
-            serviceDetailsDiv.style.display = 'none';
-            commentSection.style.display = 'none';
-            if (commentsTextarea) commentsTextarea.value = '';
-            if (quantityInput) {
-                quantityInput.removeAttribute('min');
-                quantityInput.removeAttribute('max');
-                quantityInput.value = '';
-            }
-
-            if (selectedService) {
-                minMaxInfoDiv.style.display = 'flex';
-                serviceMinSpan.innerText = selectedService.min.toLocaleString('id-ID');
-                serviceMaxSpan.innerText = selectedService.max.toLocaleString('id-ID');
-                
-                serviceDetailsDiv.style.display = 'block';
-                servicePriceSpan.innerText = `Rp ${selectedService.price.toLocaleString('id-ID')}/1K`;
-                serviceDescriptionP.innerHTML = selectedService.description || '<i style="color:var(--light-text);">Tidak ada deskripsi.</i>';
-
-                if (selectedService.name.toLowerCase().includes('komentar') || selectedService.name.toLowerCase().includes('comment')) {
-                    commentSection.style.display = 'block';
-                    if (quantityInput) quantityInput.placeholder = 'Jumlah komentar...';
-                } else {
-                    if (quantityInput) quantityInput.placeholder = 'Masukkan jumlah...';
-                }
-                
-                if (quantityInput) {
-                    quantityInput.setAttribute('min', selectedService.min);
-                    quantityInput.setAttribute('max', selectedService.max);
-                    quantityInput.value = selectedService.min; // Set default value to min
-                }
-            }
-            calculateCost();
-        }
-
-        const quantityInput = document.getElementById('quantity');
-        if (quantityInput) {
-            quantityInput.addEventListener('input', calculateCost);
-        }
-
-        function calculateCost() {
-            const serviceId = document.getElementById('hiddenService').value;
-            const quantityInput = document.getElementById('quantity');
-            const costDiv = document.getElementById('totalCost');
-
-            const selectedService = allServices.find(service => service.id == serviceId);
-            
-            if (!selectedService || !quantityInput || !quantityInput.value) {
-                if (costDiv) costDiv.innerText = 'Rp 0';
-                return;
-            }
-
-            const pricePerK = parseFloat(selectedService.price);
-            const quantity = parseInt(quantityInput.value, 10);
-            
-            if (isNaN(pricePerK) || isNaN(quantity) || quantity <= 0) {
-                if (costDiv) costDiv.innerText = 'Rp 0';
-                return;
-            }
-            
-            const totalCost = (pricePerK / 1000) * quantity;
-            if (costDiv) costDiv.innerText = `Rp ${totalCost.toLocaleString('id-ID')}`;
-        }
-
-        const suntikSosmedForm = document.getElementById('suntikSosmedForm');
-        if (suntikSosmedForm) {
-            suntikSosmedForm.addEventListener('submit', async function(e) {
-                e.preventDefault();
-    
-                const serviceId = document.getElementById('hiddenService').value;
-                const targetLink = document.getElementById('target').value;
-                const quantity = document.getElementById('quantity').value;
-                const comments = document.getElementById('comments').value;
-                const statusMessage = document.getElementById('statusMessage');
-                const submitBtn = document.getElementById('submitOrderBtn');
-                
-                const selectedService = allServices.find(service => service.id == serviceId);
-                const isCommentService = selectedService.name.toLowerCase().includes('komentar') || selectedService.name.toLowerCase().includes('comment');
-    
-                if (!serviceId || !targetLink || !quantity || (isCommentService && !comments)) {
-                    alert('Mohon isi semua data dengan lengkap.');
-                    return;
-                }
-    
-                submitBtn.disabled = true;
-                submitBtn.innerText = 'Memproses...';
-                statusMessage.style.display = 'block';
-                statusMessage.style.backgroundColor = 'rgba(0, 255, 242, 0.2)';
-                statusMessage.style.color = 'var(--neon-cyan)';
-                statusMessage.innerText = 'Sedang mengirim pesanan...';
-    
-                const formData = {
-                    'api_id': FAYU_API_ID,
-                    'api_key': FAYU_API_KEY,
-                    'service': serviceId,
-                    'target': targetLink,
-                    'quantity': quantity
-                };
-                
-                if (isCommentService) {
-                    formData.note = comments;
-                }
-    
-                try {
-                    const response = await fetch(`${FAYU_ENDPOINT}/order`, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded',
-                        },
-                        body: new URLSearchParams(formData)
-                    });
-    
-                    const data = await response.json();
-                    
-                    if (data.status) {
-                        statusMessage.style.backgroundColor = 'rgba(76, 175, 80, 0.2)';
-                        statusMessage.style.color = '#4caf50';
-                        statusMessage.innerHTML = `✅ Pesanan berhasil dibuat! ID pesanan: <b>#${data.order}</b>`;
-                    } else {
-                        statusMessage.style.backgroundColor = 'rgba(244, 67, 54, 0.2)';
-                        statusMessage.style.color = '#f44336';
-                        statusMessage.innerText = `❌ Gagal: ${data.msg || 'Terjadi kesalahan tidak diketahui.'}`;
-                    }
-                } catch (error) {
-                    statusMessage.style.backgroundColor = 'rgba(244, 67, 54, 0.2)';
-                    statusMessage.style.color = '#f44336';
-                    statusMessage.innerText = '❌ Terjadi kesalahan saat menghubungi API.';
-                    console.error('API Error:', error);
-                } finally {
-                    submitBtn.disabled = false;
-                    submitBtn.innerText = 'Pesan';
-                    fetchServicesAndBalance(); // Refresh balance
-                }
-            });
-        }
         
         // --- Preset Alight Motion Functions ---
         async function loadPresets() {
@@ -2270,7 +1563,7 @@
         // --- LOGIKA TIKTOK DOWNLOADER ---
         const downloadTiktokBtn = document.getElementById('downloadTiktokBtn');
         const tiktokUrlInput = document.getElementById('tiktokUrlInput');
-        const tiktokResultArea = document.getElementById('resultArea');
+        const tiktokResultArea = document.getElementById('resultAreaTiktok');
         const tiktokVideoPlayer = document.getElementById('tiktokVideoPlayer');
         const tiktokVideoTitle = document.getElementById('videoTitle');
         const tiktokVideoAuthor = document.getElementById('videoAuthor');
@@ -2367,9 +1660,10 @@
         // --- LOGIKA PINTEREST DOWNLOADER (BARU) ---
         const downloadPinterestBtn = document.getElementById('downloadPinterestBtn');
         const pinterestUrlInput = document.getElementById('pinterestUrlInput');
-        const pinterestResultArea = document.getElementById('pinterestResultArea');
-        const pinterestMediaContainer = pinterestResultArea.querySelector('.media-container');
+        const pinterestResultArea = document.getElementById('resultAreaPinterest');
         const pinterestTitle = document.getElementById('pinterestTitle');
+        const pinterestMediaImg = document.getElementById('pinterestMediaImg');
+        const pinterestMediaVideo = document.getElementById('pinterestMediaVideo');
         const btnDownloadPinterest = document.getElementById('btnDownloadPinterest');
         const downloadTypeSpan = document.getElementById('downloadType');
         const pinterestStatusMessage = document.getElementById('pinterestStatusMessage');
@@ -2390,7 +1684,8 @@
                 pinterestResultArea.style.display = 'none';
                 
                 // Clear previous media
-                pinterestMediaContainer.innerHTML = '';
+                pinterestMediaImg.style.display = 'none';
+                pinterestMediaVideo.style.display = 'none';
     
                 try {
                     const response = await fetch(`${CUSTOM_API_URL}/api/download-pinterest?url=${encodeURIComponent(url)}`);
@@ -2402,21 +1697,19 @@
                         pinterestResultArea.style.display = 'flex';
                         pinterestTitle.innerText = pinterestData.title || 'Tidak ada judul';
     
-                        let mediaElement;
                         if (data.type === 'video') {
-                            mediaElement = document.createElement('video');
-                            mediaElement.src = pinterestData.url;
-                            mediaElement.controls = true;
-                            mediaElement.setAttribute('poster', pinterestData.thumbnail);
+                            pinterestMediaVideo.src = pinterestData.url;
+                            pinterestMediaVideo.controls = true;
+                            pinterestMediaVideo.setAttribute('poster', pinterestData.thumbnail);
+                            pinterestMediaVideo.style.display = 'block';
                             downloadTypeSpan.innerText = 'Video';
                         } else {
-                            mediaElement = document.createElement('img');
-                            mediaElement.src = pinterestData.url;
-                            mediaElement.alt = pinterestData.title || 'Pinterest Image';
+                            pinterestMediaImg.src = pinterestData.url;
+                            pinterestMediaImg.alt = pinterestData.title || 'Pinterest Image';
+                            pinterestMediaImg.style.display = 'block';
                             downloadTypeSpan.innerText = 'Gambar';
                         }
                         
-                        pinterestMediaContainer.appendChild(mediaElement);
                         btnDownloadPinterest.href = pinterestData.url;
                         btnDownloadPinterest.setAttribute('download', true);
     
@@ -2447,89 +1740,6 @@
             });
         }
         
-        // --- LOGIKA ALL SOSMED DOWNLOADER ---
-        const downloadAllSosmedBtn = document.getElementById('downloadAllSosmedBtn');
-        const allSosmedUrlInput = document.getElementById('allSosmedUrlInput');
-        const allSosmedResultArea = document.getElementById('allSosmedResultArea');
-        const allSosmedMediaDisplay = document.getElementById('allSosmedMediaDisplay');
-        const allSosmedDownloadLinks = allSosmedResultArea.querySelector('.download-links');
-        const allSosmedStatusMessage = document.getElementById('allSosmedStatusMessage');
-
-        if (downloadAllSosmedBtn) {
-            downloadAllSosmedBtn.addEventListener('click', async () => {
-                const url = allSosmedUrlInput.value.trim();
-                if (!url) {
-                    alert('Silakan masukkan URL sosmed.');
-                    return;
-                }
-
-                allSosmedStatusMessage.style.display = 'block';
-                allSosmedStatusMessage.style.backgroundColor = 'rgba(0, 255, 242, 0.2)';
-                allSosmedStatusMessage.style.color = 'var(--neon-cyan)';
-                allSosmedStatusMessage.innerText = 'Sedang memproses, mohon tunggu...';
-                downloadAllSosmedBtn.disabled = true;
-                allSosmedResultArea.style.display = 'none';
-                allSosmedMediaDisplay.innerHTML = '';
-                allSosmedDownloadLinks.innerHTML = '';
-
-                try {
-                    const response = await fetch(`${CUSTOM_API_URL}/api/download-all-sosmed?url=${encodeURIComponent(url)}`);
-                    const data = await response.json();
-
-                    if (response.ok && data.status === 'success' && data.data) {
-                        allSosmedResultArea.style.display = 'block';
-                        allSosmedStatusMessage.style.display = 'none';
-                        const resultData = data.data;
-
-                        // Display media (video or image)
-                        if (resultData.thumbnail) {
-                            if (resultData.url && resultData.url.endsWith('.mp4')) {
-                                allSosmedMediaDisplay.innerHTML += `<video controls src="${resultData.url}" poster="${resultData.thumbnail}"></video>`;
-                            } else {
-                                allSosmedMediaDisplay.innerHTML += `<img src="${resultData.thumbnail}" alt="Thumbnail">`;
-                            }
-                        }
-
-                        // Display download links
-                        if (resultData.url) {
-                            allSosmedDownloadLinks.innerHTML += `<a href="${resultData.url}" download class="download-btn">Download Media</a>`;
-                        } else if (resultData.audio) {
-                             allSosmedDownloadLinks.innerHTML += `<a href="${resultData.audio}" download class="download-btn">Download Audio</a>`;
-                        }
-                        
-                        // Handle multiple files if available
-                        if (resultData.urls && Array.isArray(resultData.urls)) {
-                            resultData.urls.forEach((item, index) => {
-                                allSosmedDownloadLinks.innerHTML += `<a href="${item.url}" download class="download-btn">Download Media ${index + 1} (${item.quality})</a>`;
-                            });
-                        }
-                        
-                        if (resultData.music) {
-                            allSosmedDownloadLinks.innerHTML += `<a href="${resultData.music}" download class="download-btn" style="background-color: #e91e63; color: white;">Download Music</a>`;
-                        }
-                        
-                        // Simpan ke riwayat
-                        saveToHistory({
-                            type: 'all-sosmed',
-                            title: resultData.title || `Konten dari ${new URL(url).hostname}`,
-                            url: resultData.url || resultData.urls[0]?.url || 'Tidak ada URL utama'
-                        });
-
-                    } else {
-                        allSosmedStatusMessage.style.backgroundColor = 'rgba(244, 67, 54, 0.2)';
-                        allSosmedStatusMessage.style.color = '#f44336';
-                        allSosmedStatusMessage.innerText = `❌ Gagal: ${data.message || 'Terjadi kesalahan. Pastikan URL valid.'}`;
-                    }
-                } catch (error) {
-                    console.error('All Sosmed Download Error:', error);
-                    allSosmedStatusMessage.style.backgroundColor = 'rgba(244, 67, 54, 0.2)';
-                    allSosmedStatusMessage.style.color = '#f44336';
-                    allSosmedStatusMessage.innerText = '❌ Terjadi kesalahan saat menghubungi server.';
-                } finally {
-                    downloadAllSosmedBtn.disabled = false;
-                }
-            });
-        }
         
         // --- LOGIKA UPLOAD VIDEO TIKTOK KE CATBOX ---
         if (btnUploadToCatbox) {
@@ -2758,7 +1968,8 @@
             });
         }
         
-        setupCustomDropdowns();
+        document.addEventListener('DOMContentLoaded', loadHistory);
+        
     </script>
 </body>
 </html>
