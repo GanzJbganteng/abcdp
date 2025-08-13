@@ -1455,13 +1455,7 @@
                     Semua kebutuhan digitalmu ada di sini.
                 </p>
             </div>
-        
-            <div class="stats-container">
-                <div class="stat-card">
-                    <span class="icon fas fa-cogs"></span>
-                    <h3>Total Layanan</h3>
-                    <p id="totalServicesCount">Memuat...</p>
-                </div>
+       
                 <div class="stat-card">
                     <span class="icon fab fa-telegram-plane"></span>
                     <h3>Bot Telegram</h3>
@@ -1789,13 +1783,12 @@
         const FAYU_ENDPOINT = 'https://fayupedia.id/api';
 
         // GANTI DENGAN IP LOKAL TERMUX-MU JIKA INGIN DIAKSES DARI JARINGAN LAIN
-        // DAN PASTIKAN PORT-NYA SAMA DENGAN SERVER NODE.JS.
-        const CUSTOM_API_URL = 'https://abcdp-kappa.vercel.app';
-        
+        // DAN PASTIKAN PORT-NYA SAMA DENGAN SERVER PYTHON.
+        const CUSTOM_API_URL = 'http://localhost:9091';
+
         let allServices = [];
         let categories = [];
-        let lastTiktokVideoUrl = ''; // Variabel untuk menyimpan URL video TikTok terakhir
-
+        
         function toggleSidebar() {
             const sidebar = document.getElementById('sidebar');
             const backdrop = document.getElementById('backdrop');
@@ -1839,43 +1832,6 @@
                     item.classList.add('active');
                 }
             });
-
-            // Panggil fungsi yang relevan saat menu diklik
-            if (targetId === 'suntik-sosmed') {
-                if (allServices.length === 0) {
-                    fetchServicesAndBalance();
-                }
-            } else if (targetId === 'alight-motion-preset') {
-                loadPresets();
-            } else if (targetId === 'tiktok-downloader') {
-                 // Reset TikTok form when navigating
-                document.getElementById('tiktokUrlInput').value = '';
-                document.getElementById('resultArea').style.display = 'none';
-                document.getElementById('tiktokStatusMessage').style.display = 'none';
-                document.getElementById('uploadResultBox').style.display = 'none'; // Tambah: Sembunyikan box hasil upload
-                lastTiktokVideoUrl = '';
-                document.getElementById('btnUploadToCatbox').style.display = 'none';
-            } else if (targetId === 'pinterest-downloader') {
-                // Reset Pinterest form when navigating
-                document.getElementById('pinterestUrlInput').value = '';
-                document.getElementById('pinterestResultArea').style.display = 'none';
-                document.getElementById('pinterestStatusMessage').style.display = 'none';
-            } else if (targetId === 'all-sosmed-downloader') {
-                document.getElementById('allSosmedUrlInput').value = '';
-                document.getElementById('allSosmedResultArea').style.display = 'none';
-                document.getElementById('allSosmedStatusMessage').style.display = 'none';
-            } else if (targetId === 'media-to-url') {
-                // Reset Media to URL form when navigating
-                document.getElementById('mediaFile').value = '';
-                document.getElementById('fileName').innerText = 'Pilih File Media';
-                document.getElementById('uploadResult').style.display = 'none'; // Perubahan: Sembunyikan div
-                document.getElementById('uploadStatusMessage').style.display = 'none';
-                document.querySelector('.progress-bar-container').style.display = 'none';
-            } else if (targetId === 'history') {
-                loadHistory();
-            } else if (targetId === 'beranda') {
-                loadHomeStats();
-            }
         }
         
         document.querySelectorAll('.sidebar .menu-item').forEach(item => {
@@ -1887,18 +1843,16 @@
                     placeholderText = 'Cari produk...';
                 } else if (targetId === 'suntik-sosmed') {
                     placeholderText = 'Cari layanan...';
+                    if (allServices.length === 0) {
+                        fetchServicesAndBalance();
+                    }
                 } else if (targetId === 'alight-motion-preset') {
                     placeholderText = 'Cari preset...';
+                    loadPresets();
                 } else if (targetId === 'tiktok-downloader') {
-                    placeholderText = 'Cari link TikTok...';
-                } else if (targetId === 'pinterest-downloader') {
-                    placeholderText = 'Cari link Pinterest...';
-                } else if (targetId === 'all-sosmed-downloader') {
-                    placeholderText = 'Cari link sosmed...';
-                } else if (targetId === 'media-to-url') {
                     placeholderText = 'Cari...';
-                } else if (targetId === 'history') {
-                    placeholderText = 'Cari di riwayat...';
+                } else if (targetId === 'video-to-url') {
+                    placeholderText = 'Cari...';
                 }
                 showContent(targetId, placeholderText);
                 
@@ -1914,48 +1868,7 @@
               showContent(window.location.hash.substring(1), 'Cari...');
             }
         });
-        
-        // --- Fungsi untuk Mengisi Data Statistik di Beranda ---
-        async function loadHomeStats() {
-            const totalServicesCount = document.getElementById('totalServicesCount');
-            const totalPresetsCount = document.getElementById('totalPresetsCount');
-            
-            // Ambil data layanan dari Fayu Pedia
-            if (allServices.length === 0) {
-                try {
-                    const servicesResponse = await fetch(`${FAYU_ENDPOINT}/services`, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                        body: new URLSearchParams({
-                            'api_id': FAYU_API_ID,
-                            'api_key': FAYU_API_KEY,
-                        })
-                    });
-                    const servicesData = await servicesResponse.json();
-                    if (servicesData.status) {
-                        allServices = servicesData.services;
-                        totalServicesCount.innerText = allServices.length.toLocaleString('id-ID');
-                    } else {
-                        totalServicesCount.innerText = 'Gagal';
-                    }
-                } catch (error) {
-                    totalServicesCount.innerText = 'Error';
-                    console.error('API Error:', error);
-                }
-            } else {
-                totalServicesCount.innerText = allServices.length.toLocaleString('id-ID');
-            }
 
-            // Ambil data preset dari server backend
-            try {
-                const presetsResponse = await fetch(`${CUSTOM_API_URL}/api/presets`);
-                const presets = await presetsResponse.json();
-                totalPresetsCount.innerText = presets.length.toLocaleString('id-ID');
-            } catch (error) {
-                totalPresetsCount.innerText = 'Error';
-            }
-        }
-        
         // --- FAYU PEDIA API FUNCTIONS ---
         async function fetchServicesAndBalance() {
             const balanceSpan = document.getElementById('balanceAmount');
