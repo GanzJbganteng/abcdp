@@ -569,8 +569,9 @@
             box-shadow: 0 0 15px var(--neon-shadow);
         }
         
-        .tiktok-downloader #resultArea,
-        .pinterest-downloader #resultArea {
+        /* --- KODE PERBAIKAN DIMULAI DARI SINI --- */
+        .tiktok-downloader #resultAreaTiktok,
+        .pinterest-downloader #resultAreaPinterest {
             display: none;
             flex-direction: column;
             gap: 1.5rem;
@@ -578,8 +579,8 @@
             text-align: left;
         }
         
-        .tiktok-downloader #resultArea .video-info,
-        .pinterest-downloader #resultArea .video-info {
+        .tiktok-downloader #resultAreaTiktok .video-info,
+        .pinterest-downloader #resultAreaPinterest .video-info {
             background-color: var(--light-card-bg);
             padding: 1.5rem;
             border-radius: 10px;
@@ -587,20 +588,20 @@
             box-shadow: 0 0 10px var(--neon-shadow);
         }
 
-        .tiktok-downloader #resultArea .video-info h3,
-        .pinterest-downloader #resultArea .video-info h3 {
+        .tiktok-downloader #resultAreaTiktok .video-info h3,
+        .pinterest-downloader #resultAreaPinterest .video-info h3 {
             color: var(--neon-cyan);
             margin-top: 0;
             text-shadow: 0 0 5px var(--neon-shadow);
         }
         
-        .tiktok-downloader #resultArea .video-info p,
-        .pinterest-downloader #resultArea .video-info p {
+        .tiktok-downloader #resultAreaTiktok .video-info p,
+        .pinterest-downloader #resultAreaPinterest .video-info p {
             margin: 0.5rem 0;
         }
         
-        .tiktok-downloader #resultArea .download-links,
-        .pinterest-downloader #resultArea .download-links {
+        .tiktok-downloader #resultAreaTiktok .download-links,
+        .pinterest-downloader #resultAreaPinterest .download-links {
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
@@ -609,10 +610,10 @@
             margin-top: 1rem;
         }
         
-        .tiktok-downloader #resultArea .download-links a,
-        .pinterest-downloader #resultArea .download-links a,
-        .tiktok-downloader #resultArea .download-links button,
-        .pinterest-downloader #resultArea .download-links button {
+        .tiktok-downloader #resultAreaTiktok .download-links a,
+        .pinterest-downloader #resultAreaPinterest .download-links a,
+        .tiktok-downloader #resultAreaTiktok .download-links button,
+        .pinterest-downloader #resultAreaPinterest .download-links button {
             display: block;
             padding: 0.75rem;
             text-align: center;
@@ -627,34 +628,35 @@
         }
         
         @media (max-width: 480px) {
-            .tiktok-downloader #resultArea .download-links a,
-            .pinterest-downloader #resultArea .download-links a,
-            .tiktok-downloader #resultArea .download-links button,
-            .pinterest-downloader #resultArea .download-links button {
+            .tiktok-downloader #resultAreaTiktok .download-links a,
+            .pinterest-downloader #resultAreaPinterest .download-links a,
+            .tiktok-downloader #resultAreaTiktok .download-links button,
+            .pinterest-downloader #resultAreaPinterest .download-links button {
                 flex-basis: 100%;
             }
         }
         
-        .tiktok-downloader #resultArea .download-links .btn-video-nowm,
-        .pinterest-downloader #resultArea .download-links .btn-video-nowm {
+        .tiktok-downloader #resultAreaTiktok .download-links .btn-video-nowm,
+        .pinterest-downloader #resultAreaPinterest .download-links .btn-video-nowm {
             background-color: var(--neon-cyan);
             color: var(--btn-text);
         }
         
-        .tiktok-downloader #resultArea .download-links .btn-video-nowm:hover,
-        .pinterest-downloader #resultArea .download-links .btn-video-nowm:hover {
+        .tiktok-downloader #resultAreaTiktok .download-links .btn-video-nowm:hover,
+        .pinterest-downloader #resultAreaPinterest .download-links .btn-video-nowm:hover {
             background-color: #00b8d4;
         }
         
-        .tiktok-downloader #resultArea .download-links .btn-music {
+        .tiktok-downloader #resultAreaTiktok .download-links .btn-music {
             background-color: #e91e63;
             color: #fff;
         }
         
-        .tiktok-downloader #resultArea .download-links .btn-music:hover {
+        .tiktok-downloader #resultAreaTiktok .download-links .btn-music:hover {
             background-color: #c2185b;
         }
-        
+        /* --- KODE PERBAIKAN SELESAI DI SINI --- */
+
         .upload-result-box {
             background-color: var(--light-card-bg);
             padding: 1.5rem;
@@ -1062,13 +1064,13 @@
             align-items: center;
         }
         
-        #pinterest-downloader #resultArea img, #pinterest-downloader #resultArea video {
+        #pinterest-downloader #resultAreaPinterest img, #pinterest-downloader #resultAreaPinterest video {
             max-width: 100%; /* MEMASTIKAN TIDAK MELEBIHI LEBAR ASLI */
             height: auto; /* MEMPERTAHANKAN RASIO ASPEK */
             border-radius: 10px;
             margin-bottom: 1rem;
         }
-        #pinterest-downloader #resultArea .download-links {
+        #pinterest-downloader #resultAreaPinterest .download-links {
             justify-content: center;
         }
         
